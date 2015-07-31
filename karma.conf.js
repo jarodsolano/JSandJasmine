@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Thu Jul 30 2015 22:47:54 GMT-0600 (Mountain Daylight Time)
+// Generated on Fri Jul 31 2015 00:00:34 GMT-0600 (Mountain Daylight Time)
 
 module.exports = function(config) {
   config.set({
@@ -15,9 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'spec/HelloWorldSpec.js',
-        'spec/PlayerSpec.js',
-        'spec/SpecHelper.js'
+      'spec/*.js'
     ],
 
 
@@ -35,7 +33,21 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'html'],
+
+      htmlReporter: {
+          outputDir: 'karma_html', // where to put the reports
+          templatePath: 'null', // set if you moved jasmine_template.html
+          focusOnFailures: true, // reports show failures on start
+          namedFiles: false, // name files instead of creating sub-directories
+          pageTitle: null, // page title for reports; browser info by default
+          urlFriendlyName: false, // simple replaces space with _ for files/dirs
+          reportName: 'report-summer-filename', // report summary filename
+
+          //experimental
+          preserveDescribeNesting: false, // folded suites stay folded
+          foldAll: false, //reports start folded
+      },
 
 
     // web server port
@@ -62,13 +74,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true,
-
-      // Plugins for browsers
-      plugins : [
-          'karma-chrome-launcher',
-          'karma-ie-launcher',
-          'karma-firefox-launcher'
-      ]
+    singleRun: true
   })
 }
