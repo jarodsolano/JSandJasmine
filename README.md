@@ -16,7 +16,7 @@ npm install -g karma-cli
 
 
 Re-configure Karma
-kara init
+karma init
 
 
 ---Found karma-jasmine-html-reporter (try later)
